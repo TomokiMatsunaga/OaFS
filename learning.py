@@ -20,8 +20,8 @@ from evaluation import (instrument_list, multidataset_list, instfamily_conversio
 dataset_list = ['Slakh']  # 'MusicNet', 'URMP', 'Slakh', 'GuitarSet', 'MAESTRO'
 train_mode = 0  # 0 : train   1 : predict
 evaluation_mode = 1  # 0 : off   1 : on
-train_feature_path = ['train/feature']
-val_feature_path = ['validation/feature']
+train_feature_path = ['MLCFP/Slakh/train/feature']
+val_feature_path = ['MLCFP/Slakh/validation/feature']
 
 timesteps = 256
 feature_num = 256
@@ -452,12 +452,12 @@ if __name__ == '__main__':
         root.withdraw()
         print("Please open feature files")
         feature_file = filedialog.askopenfilename(filetypes=[("HDF5 files", "*.hdf5")],
-                                                  initialdir='test/feature')
+                                                  initialdir='MLCFP')
         print(feature_file)
         if evaluation_mode == 1:
             print("Please open label files")
             label_file = filedialog.askopenfilename(filetypes=[("HDF5 files", "*.hdf5")],
-                                                    initialdir='test/label')
+                                                    initialdir='MLCFP')
             print(label_file)
         print("Please open checkpoint folder")
         checkpoint_folder = filedialog.askdirectory(initialdir='checkpoints')
