@@ -30,19 +30,19 @@ if __name__ == '__main__':
                                file_path + '/URMP_label/',
                                'MLCFP/URMP/', 'URMP')
     elif dataset == 'GuitarSet':
-        parallel_extract_mlcfp(file_path + 'GuitarSet/audio_hex-pickup_original/*.wav',
-                               file_path + 'GuitarSet_label/',
+        parallel_extract_mlcfp(file_path + '/GuitarSet/audio_hex-pickup_original/*.wav',
+                               file_path + '/GuitarSet_label/',
                                'MLCFP/GuitarSet/', 'GuitarSet')
     elif dataset == 'MusicNet':
-        parallel_extract_mlcfp(file_path + 'musicnet/train_data/*.wav',
-                               file_path + 'musicnet/train_labels/',
+        parallel_extract_mlcfp(file_path + '/musicnet/train_data/*.wav',
+                               file_path + '/musicnet/train_labels/',
                                'MLCFP/MusicNet/', 'MusicNet')
-        parallel_extract_mlcfp(file_path + 'musicnet/test_data/*.wav',
-                               file_path + 'musicnet/test_labels/',
+        parallel_extract_mlcfp(file_path + '/musicnet/test_data/*.wav',
+                               file_path + '/musicnet/test_labels/',
                                'MLCFP/MusicNet/', 'MusicNet')
     elif dataset == 'MAESTRO':
-        parallel_extract_mlcfp(file_path + 'maestro-v3.0.0/*/*.wav',
-                               file_path + 'maestro-v3.0.0/',
+        parallel_extract_mlcfp(file_path + '/maestro-v3.0.0/*/*.wav',
+                               file_path + '/maestro-v3.0.0/',
                                'MLCFP/MAESTRO/', 'MAESTRO')
     else:
         raise Exception('The specified dataset is not registered')
