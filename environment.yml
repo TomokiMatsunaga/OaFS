@@ -1,0 +1,9 @@
+name: OaFS
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - scipy
+  - pandas
+  - h5py
+  - conda-forge::mido
