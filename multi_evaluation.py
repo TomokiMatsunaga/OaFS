@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 from learning import onset_and_frame_streams_evaluate
 
-feature_folder = 'test/feature/*.hdf5'
+feature_folder = 'MLCFP/Slakh/test/feature/*.hdf5'
 csv_path = 'temp/Slakh_eval.csv'
 dataset_list = ['Slakh']
 midi_path = 'MIDI/Slakh'
