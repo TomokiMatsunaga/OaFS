@@ -36,6 +36,8 @@ OaFS (Onset and Frame Streams) is a multitrack music transcription framework tha
   python MLCFP.py --train_mode 1 --evaluation_mode 1 --dataset_list 'dataset list'
   ```
 
+The weights for each model used in the experiment can be found here: https://huggingface.co/tmatsu11/OaFS
+
 
 ## Citation
   Under review
