@@ -402,7 +402,7 @@ split = 10
 
 def extract_feature_low_memory(wav_file, output_path, dataset, feature_num=feature_num, length=length, window=window,
                                W=W, H=H, fftnum=fftnum, p0=p0, qc=qc, qp=qp, peakth=peakth, peakd=peakd, alpha=alpha,
-                               fu1=fu1, fu2=fu2, sigma=sigma):
+                               fu1=fu1, fu2=fu2, sigma=sigma, save_feature=True):
     fs, data = file_import(wav_file)
     snum1 = round(W * fs)
     snum = fftnum * snum1
@@ -483,22 +483,23 @@ def extract_feature_low_memory(wav_file, output_path, dataset, feature_num=featu
     norm = np.max(np.max(feature, 0), 0)
     feature /= norm
     t = np.arange(0, total_t * H - H / 2, H)
-    if dataset == 'Slakh' or dataset == 'URMP':
-        with (h5py.File(output_path + 'feature/' + os.path.basename(os.path.dirname(wav_file)) + '.hdf5', 'w')
-              as f):
-            f.create_dataset('feature', data=feature, chunks=(128, 128, 9), compression='gzip', shuffle=True,
-                             fletcher32=True)
-    else:
-        with (h5py.File(output_path + 'feature/' + os.path.splitext(os.path.basename(wav_file))[0] + '.hdf5', 'w')
-              as f):
-            f.create_dataset('feature', data=feature, chunks=(128, 128, 9), compression='gzip', shuffle=True,
-                             fletcher32=True)
+    if save_feature:
+        if dataset == 'Slakh' or dataset == 'URMP':
+            with (h5py.File(output_path + 'feature/' + os.path.basename(os.path.dirname(wav_file)) + '.hdf5', 'w')
+                  as f):
+                f.create_dataset('feature', data=feature, chunks=(128, 128, 9), compression='gzip', shuffle=True,
+                                 fletcher32=True)
+        else:
+            with (h5py.File(output_path + 'feature/' + os.path.splitext(os.path.basename(wav_file))[0] + '.hdf5', 'w')
+                  as f):
+                f.create_dataset('feature', data=feature, chunks=(128, 128, 9), compression='gzip', shuffle=True,
+                                 fletcher32=True)
     return feature, t
 
 
 def extract_feature(wav_file, output_path, dataset, feature_num=feature_num, length=length, window=window, W=W, H=H,
                     fftnum=fftnum, p0=p0, qc=qc, qp=qp, peakth=peakth, peakd=peakd, alpha=alpha, fu1=fu1, fu2=fu2,
-                    sigma=sigma):
+                    sigma=sigma, save_feature=True):
     fs, data = file_import(wav_file)
     snum1 = round(W * fs)
     snum = fftnum * snum1
@@ -535,16 +536,17 @@ def extract_feature(wav_file, output_path, dataset, feature_num=feature_num, len
     feature = np.dstack([MZ0, MZf, MZq])
     norm = np.max(np.max(feature, 0), 0)
     feature /= norm
-    if dataset == 'Slakh' or dataset == 'URMP':
-        with (h5py.File(output_path + 'feature/' + os.path.basename(os.path.dirname(wav_file)) + '.hdf5', 'w')
-              as f):
-            f.create_dataset('feature', data=feature, chunks=(128, 128, 9), compression='gzip', shuffle=True,
-                             fletcher32=True)
-    else:
-        with (h5py.File(output_path + 'feature/' + os.path.splitext(os.path.basename(wav_file))[0] + '.hdf5', 'w')
-              as f):
-            f.create_dataset('feature', data=feature, chunks=(128, 128, 9), compression='gzip', shuffle=True,
-                             fletcher32=True)
+    if save_feature:
+        if dataset == 'Slakh' or dataset == 'URMP':
+            with (h5py.File(output_path + 'feature/' + os.path.basename(os.path.dirname(wav_file)) + '.hdf5', 'w')
+                  as f):
+                f.create_dataset('feature', data=feature, chunks=(128, 128, 9), compression='gzip', shuffle=True,
+                                 fletcher32=True)
+        else:
+            with (h5py.File(output_path + 'feature/' + os.path.splitext(os.path.basename(wav_file))[0] + '.hdf5', 'w')
+                  as f):
+                f.create_dataset('feature', data=feature, chunks=(128, 128, 9), compression='gzip', shuffle=True,
+                                 fletcher32=True)
     return feature, t
 
 
