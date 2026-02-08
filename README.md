@@ -45,4 +45,13 @@ The trained model used in the experiment can be found here: https://huggingface.
 
 
 ## Citation
-  Under review
+  ```
+  @Article{signals7010012,
+  AUTHOR = {Matsunaga, Tomoki and Saito, Hiroaki},
+  TITLE = {Multitrack Music Transcription Based on Joint Learning of Onset and Frame Streams},
+  JOURNAL = {Signals},
+  VOLUME = {7},
+  YEAR = {2026},
+  NUMBER = {1},
+  DOI = {10.3390/signals7010012}
+  ```
