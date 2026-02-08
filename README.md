@@ -53,5 +53,5 @@ The trained model used in the experiment can be found here: https://huggingface.
   VOLUME = {7},
   YEAR = {2026},
   NUMBER = {1},
-  DOI = {10.3390/signals7010012}
+  DOI = {10.3390/signals7010012}}
   ```
